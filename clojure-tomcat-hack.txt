@@ -22,4 +22,13 @@ stephan@Nostromo:~/source/tomcats/clojure-web-example$ cat project.clj
                  [ring/ring-jetty-adapter "1.3.0"]]   ;; and added this!
    :ring {:handler clojure-web-example.core/handler}  ;; why add this?
    :main  clojure-web-example.core)                   ;; added for uberwar
+stephan@Nostromo:~/source/tomcats/clojure-web-example$ lein ring uberwar clojure-web-example-0.1.0.war
+Created /home/stephan/source/tomcats/clojure-web-example/target/clojure-web-example-0.1.0.war
+stephan@Nostromo:~/source/tomcats/clojure-web-example$ ls
+clojure-tomcat-hack.txt  clojure-tomcat-hack.txt~  doc  LICENSE  project.clj  project.clj~  README.md  resources  src  target  test
+stephan@Nostromo:~/source/tomcats/clojure-web-example$ ls target/
+classes  clojure-web-example-0.1.0.war  stale
+stephan@Nostromo:~/source/tomcats/clojure-web-example$ export TOMCAT_WEBAPP_HOME=/home/stephan/source/apache-tomcat-7.0.54-src/output/build/webapps/
+stephan@Nostromo:~/source/tomcats/clojure-web-example$ cp target/clojure-web-example-0.1.0.war $TOMCAT_WEBAPP_HOME
+stephan@Nostromo:~/source/tomcats/clojure-web-example$ # go to localhost:8080/clojure-web-example-0.1.0 and get the silly message from the handler!
 stephan@Nostromo:~/source/tomcats/clojure-web-example$ 
